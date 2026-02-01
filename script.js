@@ -13,7 +13,7 @@ const CONFIG = {
         searchTerms: {
             intro: 'cute love bear',
             question: 'romantic hearts valentine',
-            celebration: 'happy celebration love'
+            celebration: 'cute valentine love hearts'
         },
         limit: 20, // Number of GIFs to fetch
         rating: 'g' // Content rating (g, pg, pg-13, r)
@@ -598,37 +598,3 @@ if (document.readyState === 'loading') {
     init();
 }
 
-// ==========================================
-// CUSTOMIZATION NOTES
-// ==========================================
-/*
-🎨 TO CUSTOMIZE:
-
-1. GIPHY API KEY:
-   - Get free key at https://developers.giphy.com/
-   - Replace 'YOUR_GIPHY_API_KEY_HERE' in CONFIG.giphy.apiKey
-   - GIFs will load randomly on each visit!
-
-2. CHANGE TEXT:
-   - Edit CONFIG.typewriter.text1 and text2
-   - Modify HTML content for captions
-
-3. ADD YOUR PHOTOS:
-   - Replace image src URLs in index.html
-   - Update CONFIG.carousel.totalSlides if needed
-
-4. ADJUST MINI-GAME:
-   - CONFIG.miniGame.heartsToCollect (default: 5)
-   - CONFIG.miniGame.maxHearts (hearts on screen)
-
-5. COLORS:
-   - Edit CSS variables in style.css
-   - All gradients flow top→bottom (180deg)
-
-6. TIMINGS:
-   - CONFIG.typewriter.speed
-   - CONFIG.carousel.interval
-   - CONFIG.noButton.dodgeDistance
-
-Good luck! 💖
-*/
