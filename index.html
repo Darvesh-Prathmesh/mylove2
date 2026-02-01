@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special Valentine's Day proposal 💖">
+    <title>Will You Be My Valentine? 💖</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- ==========================================
+         MINI-GAME GATE (Unlock Mechanism)
+         ========================================== -->
+    <div class="mini-game-container" id="miniGame">
+        <div class="mini-game-content">
+            <h1 class="game-title">Catch 5 Hearts to Unlock Your Surprise 💕</h1>
+            <p class="game-counter" id="gameCounter">Hearts Caught: <span id="heartCount">0</span> / 5</p>
+            <p class="game-hint" id="gameHint">Tap the floating hearts! 💖</p>
+            
+            <!-- Hearts will be spawned here by JavaScript -->
+            <div class="game-area" id="gameArea"></div>
+        </div>
+    </div>
+    
+    <!-- ==========================================
+         MAIN WEBSITE (Hidden until game complete)
+         ========================================== -->
+    <div class="main-website hidden" id="mainWebsite">
+        
+        <!-- Floating Hearts Background (throughout) -->
+        <div class="floating-hearts" id="floatingHearts"></div>
+        
+        <!-- ========================================
+             SECTION 1: INTRO
+             ======================================== -->
+        <section class="section intro-section" id="intro">
+            <div class="section-content">
+                <!-- GIF loaded from Giphy API -->
+                <div class="intro-gif">
+                    <img src="" alt="Romantic animation" class="romantic-gif" id="introGif">
+                </div>
+                
+                <!-- Typewriter Text -->
+                <div class="typewriter-container">
+                    <h1 class="typewriter-text" id="typewriterText"></h1>
+                    <p class="typewriter-subtext" id="typewriterSubtext"></p>
+                </div>
+                
+                <!-- Scroll Button -->
+                <button class="scroll-btn" id="scrollToMemories" aria-label="Continue to memories">
+                    <span>Continue</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             SECTION 2: OUR MEMORIES (Interactive Images)
+             ======================================== -->
+        <section class="section memories-section" id="memories">
+            <div class="section-content">
+                <h2 class="section-title">Our Beautiful Moments 💕</h2>
+                
+                <!-- Interactive Image Carousel -->
+                <div class="carousel-container">
+                    <div class="carousel-wrapper" id="carouselWrapper">
+                        
+                        <!-- Memory 1 -->
+                        <div class="memory-card active">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/1.jpeg" 
+                                     alt="Our memory 1" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>The smile I fall for every day 💕</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory 2 -->
+                        <div class="memory-card">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/2.jpeg" 
+                                     alt="Our memory 2" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>My favorite place is next to you 🥰</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory 3 -->
+                        <div class="memory-card">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/3.jpg" 
+                                     alt="Our memory 3" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>Every moment with you is magic ✨</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory 4 -->
+                        <div class="memory-card">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/4.jpg" 
+                                     alt="Our memory 4" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>You make everything better 💖</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory 5 -->
+                        <div class="memory-card">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/5.jpg" 
+                                     alt="Our memory 5" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>Forever grateful for you 🌹</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory 6 -->
+                        <div class="memory-card">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/6.jpg" 
+                                     alt="Our memory 6" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>Every adventure with you 🌟</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Memory 7 -->
+                        <div class="memory-card">
+                            <div class="memory-image-wrapper">
+                                <img src="assets/images/7.jpeg" 
+                                     alt="Our memory 7" 
+                                     class="memory-image">
+                                <div class="memory-caption">
+                                    <p>My heart belongs to you 💝</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-arrow prev" id="prevBtn" aria-label="Previous memory">‹</button>
+                    <button class="carousel-arrow next" id="nextBtn" aria-label="Next memory">›</button>
+                    
+                    <!-- Indicators -->
+                    <div class="carousel-indicators" id="carouselIndicators"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             SECTION 3: TRANSITION
+             ======================================== -->
+        <section class="section transition-section" id="transition">
+            <div class="section-content">
+                <p class="transition-text fade-in-text">After all this…</p>
+                <p class="transition-text fade-in-text delay-1">I have one important question 😳</p>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             SECTION 4: THE QUESTION
+             ======================================== -->
+        <section class="section question-section" id="question">
+            <div class="section-content">
+                <h2 class="question-title">Will you be my Valentine? 💖</h2>
+                
+                <!-- GIF loaded from Giphy API -->
+                <div class="question-gif">
+                    <img src="" alt="Romantic hearts" class="romantic-gif" id="questionGif">
+                </div>
+                
+                <!-- Buttons -->
+                <div class="buttons-container">
+                    <button class="btn btn-yes" id="yesBtn">YES 💖</button>
+                    <button class="btn btn-no" id="noBtn">NO 😶</button>
+                </div>
+                
+                <!-- Tooltip for NO button -->
+                <div class="no-tooltip" id="noTooltip"></div>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             SECTION 5: CELEBRATION
+             ======================================== -->
+        <section class="section celebration-section hidden" id="celebration">
+            <!-- Confetti Canvas -->
+            <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+            
+            <!-- Heart Rain -->
+            <div class="heart-rain" id="heartRain"></div>
+            
+            <div class="section-content">
+                <!-- GIF loaded from Giphy API -->
+                <div class="celebration-gif">
+                    <img src="" alt="Celebration" class="romantic-gif" id="celebrationGif">
+                </div>
+                
+                <!-- Message -->
+                <div class="celebration-message">
+                    <h2 class="celebration-title">YAYYYY 💖</h2>
+                    <p class="celebration-text">You just made me the happiest person 🥰</p>
+                    <p class="celebration-text">Happy Valentine's Day ❤️</p>
+                </div>
+                
+                <!-- Final Photo -->
+                <div class="final-photo-container">
+                    <div class="final-photo-wrapper">
+                        <img src="assets/images/1.jpeg" 
+                             alt="Us together" 
+                             class="final-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
